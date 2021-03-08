@@ -27,6 +27,34 @@ class ProductsController extends Controller
         $this->loadTemplate("product_add", $array);
     }
 
+    public function save_add()
+    {
+        if (
+            !empty($_POST['description']) &&
+            !empty($_POST['unitary_value']) && !empty($_POST['stock'])
+        ) {
+
+            $products = new Products();
+
+            $description = addslashes($_POST['description']);
+            $unitary_value = addslashes($_POST['unitary_value']);
+            $stock = addslashes($_POST['stock']);
+            if (!empty($code)) {
+
+                $code = addslashes($_POST['code']);
+            } else {
+                $code = 0;
+            }
+
+            $products->add($description, $unitary_value, $stock, $code);
+
+            header("Location: " . BASE_URL . "products");
+            exit;
+        }
+        header("Location: " . BASE_URL . "products");
+        exit;
+    }
+
     public function edit($id)
     {
         $products = new Products();

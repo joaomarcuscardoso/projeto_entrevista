@@ -70,6 +70,22 @@ class Products extends Model
         return $array;
     }
 
+
+    public function add($description, $unitary_value, $stock, $code = 0)
+    {
+
+        $unitary_value = str_replace(",", ".", $unitary_value);
+        $unitary_value = number_format($unitary_value, 2);
+
+        $sql = "INSERT INTO products (description, unitary_value, stock, 
+        ) VALUES (:description, :unitary_value, :stock)";
+        $sql = $this->db->prepare($sql);
+        $sql->bindValue(":description", $description);
+        $sql->bindValue(":unitary_value", $unitary_value);
+        $sql->bindValue(":stock", $stock);
+        $sql->execute();
+    }
+
     public function update($id, $description, $stock, $unitary_value)
     {
         $unitary_value = str_replace(",", ".", $unitary_value);
