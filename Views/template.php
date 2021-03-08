@@ -79,16 +79,16 @@
                         <div class="col-lg order-lg-first">
                             <ul class="nav nav-tabs border-0 flex-column flex-lg-row">
                                 <li class="nav-item">
-                                    <a href="<?php echo BASE_URL; ?>" class="nav-link active"><i class="fe fe-home"></i> Home</a>
+                                    <a href="<?php echo BASE_URL; ?>" class="nav-link <?php echo ($viewName == "home") ? "active" : ""; ?>"><i class="fe fe-home"></i> Home</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="<?php echo BASE_URL; ?>Products" class="nav-link"><i class="fe fe-package"></i> Produtos</a>
+                                    <a href="<?php echo BASE_URL; ?>Products" class="nav-link <?php echo ($viewName == "products") ? "active" : ""; ?>"><i class="fe fe-package"></i> Produtos</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="<?php echo BASE_URL; ?>Sales" class="nav-link"><i class="fe fe-dollar-sign"></i> Venda</a>
+                                    <a href="<?php echo BASE_URL; ?>Sales" class="nav-link <?php echo ($viewName == "sales") ? "active" : ""; ?>"><i class="fe fe-dollar-sign"></i> Venda</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="<?php echo BASE_URL; ?>Products/exclued" class="nav-link"><i class="fe fe-trash"></i> Lixeira</a>
+                                    <a href="<?php echo BASE_URL; ?>Products/list_excluded" class="nav-link <?php echo ($viewName == "products_excluded") ? "active" : ""; ?>"><i class="fe fe-trash"></i> Lixeira</a>
                                 </li>
                             </ul>
                         </div>

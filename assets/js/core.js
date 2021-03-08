@@ -29,11 +29,12 @@ $(document).ready(function() {
 
   /** Function for remove card */
   $('[data-toggle="card-remove"]').on('click', function(e) {
+
     let $card = $(this).closest(DIV_CARD);
-
+    console.log(e);
     $card.remove();
+    
 
-    e.preventDefault();
     return false;
   });
 

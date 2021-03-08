@@ -4,6 +4,9 @@ namespace Controllers;
 
 use \Core\Controller;
 
+use \Models\Products;
+use \Models\Sales;
+
 class HomeController extends Controller
 {
 
@@ -11,9 +14,10 @@ class HomeController extends Controller
     {
         $array = array();
 
-        //$users = new Users(); export users
-        print_r("chegou home");
-
+        $Sales = new Sales();
+        $Products = new Products();
+        $array["countSales"] =  $Sales->contAll();
+        $array["countProducts"] =  $Products->contAll();
 
         $this->loadTemplate("home", $array);
     }
