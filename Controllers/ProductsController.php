@@ -47,9 +47,6 @@ class ProductsController extends Controller
             }
 
             $products->add($description, $unitary_value, $stock, $code);
-
-            header("Location: " . BASE_URL . "products");
-            exit;
         }
         header("Location: " . BASE_URL . "products");
         exit;

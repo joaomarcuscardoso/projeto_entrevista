@@ -71,6 +71,7 @@ class Products extends Model
     }
 
 
+
     public function add($description, $unitary_value, $stock, $code = 0)
     {
 

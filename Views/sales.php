@@ -1,25 +1,26 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-12">
-            <form class="card">
+            <form class="card" method="POST" action="<?php echo BASE_URL; ?>sales/add">
                 <div class="card-body">
                     <h3 class="card-title">Realizar venda de um produto</h3>
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label class="form-label">Produto</label>
-                                <select class="form-control custom-select">
-                                    <option value="">Batata</option>
-                                    <option value="">Arroz</option>
-                                    <option value="">Feijão</option>
-                                    <option value="">Coca-cola 2LT</option>
+                                <select name="product_id" class="form-control custom-select">
+                                    <?php foreach ($info_prod as $all) : ?>
+                                        <option value="<?php echo $all['id']; ?>"><?php echo $all['description']; ?> - preço: R$<?php echo number_format($all['unitary_value'], 2, ',', '.'); ?></option>
+
+                                    <?php endforeach; ?>
+
                                 </select>
                             </div>
                         </div>
-                        <div class="col-sm-6 col-md-4">
+                        <div class=" col-sm-6 col-md-4">
                             <div class="form-group">
                                 <label class="form-label">Quantidade</label>
-                                <input type="number" class="form-control" placeholder="Digite aqui a quantidade">
+                                <input type="number" name="qtd_sales" class="form-control" placeholder="Digite aqui a quantidade">
                             </div>
                         </div>
                         <div class="col-sm-6 col-md-4">
@@ -27,9 +28,10 @@
                                 <label class="form-label">Valor unitário</label>
                                 <div class="input-group">
                                     <span class="input-group-prepend">
-                                        <span class="input-group-text">R$</span>
+
+                                        <span class="input-group-text">R$ </span>
                                     </span>
-                                    <input type="text" class="form-control text-right" aria-label="Valor">
+                                    <input name="unitary_value" type="text" class="form-control text-right" aria-label="Valor">
                                 </div>
                             </div>
                         </div>
@@ -49,7 +51,7 @@
                                 <div class="form-label">&nbsp;</div>
                                 <div class="custom-controls-stacked">
                                     <label class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" name="example-checkbox1" value="option1" checked>
+                                        <input type="checkbox" class="custom-control-input" name="change_price" value="1" checked>
                                         <span class="custom-control-label">Atualizar valor unitário do produto</span>
                                     </label>
                                 </div>
@@ -65,12 +67,14 @@
                         <button type="submit" class="btn btn-primary">Confirmar</button>
                     </div>
                 </div>
+
+
             </form>
         </div>
     </div>
 </div>
 </div>
-<div class="my-3 my-md-5">
+<div class=" my-3 my-md-5">
     <div class="container">
         <div class="row row-cards row-deck">
             <div class="col-12">
@@ -90,32 +94,24 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td><span class="text-muted">2</span></td>
-                                    <td>Batata</td>
-                                    <td>
-                                        2
-                                    </td>
-                                    <td>
-                                        R$ 1,50
-                                    </td>
-                                    <td>
-                                        R$ 3,00
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><span class="text-muted">1</span></td>
-                                    <td>Batata</td>
-                                    <td>
-                                        10
-                                    </td>
-                                    <td>
-                                        R$ 1,50
-                                    </td>
-                                    <td>
-                                        R$ 15,00
-                                    </td>
-                                </tr>
+                                <?php foreach ($sales as $all) : ?>
+
+                                    <tr>
+                                        <td><span class="text-muted"><?php echo $all["id_product"]; ?></span></td>
+                                        <td><?php echo $all["info_prod"]["description"]; ?></td>
+                                        <td>
+                                            <?php echo $all["qtd"]; ?>
+                                        </td>
+                                        <td>
+                                            R$ <?php echo number_format($all["unitary_value"], 2, ",", "."); ?>
+                                        </td>
+                                        <td>
+                                            R$ <?php echo number_format($all["tot_value"], 2, ',', '.'); ?>
+                                        </td>
+                                    </tr>
+
+                                <?php endforeach; ?>
+
                             </tbody>
                         </table>
                     </div>

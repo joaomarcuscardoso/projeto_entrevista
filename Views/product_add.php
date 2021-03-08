@@ -38,7 +38,7 @@
                 </div>
                 <div class="card-footer text-left" style="display: flex; justify-content: space-between">
                     <div>
-                        <a href="./produtos.html" class="btn btn-secondary">Voltar para produtos</a>
+                        <a href="<?php echo BASE_URL; ?>products" class="btn btn-secondary">Voltar para produtos</a>
                     </div>
                     <div>
                         <button type="submit" class="btn btn-primary">Confirmar</button>
