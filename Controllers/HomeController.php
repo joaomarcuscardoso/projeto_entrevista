@@ -3,7 +3,6 @@
 namespace Controllers;
 
 use \Core\Controller;
-//use \Models\Users; export Users
 
 class HomeController extends Controller
 {
@@ -13,13 +12,9 @@ class HomeController extends Controller
         $array = array();
 
         //$users = new Users(); export users
+        print_r("chegou home");
 
 
         $this->loadTemplate("home", $array);
-    }
-
-    public function products()
-    {
-        $array = array();
     }
 }

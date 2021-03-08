@@ -9,8 +9,8 @@ if (ENVIRONMENT == 'development') {
     $config['dbuser'] = 'root';
     $config['dbpass'] = '';
 } else {
-    define("BASE_URL", "http://www.php_mvc.com/");
-    $config['dbname'] = 'mvc_psr4';
+    define("BASE_URL", "http://www.projeto_entrevista.com/");
+    $config['dbname'] = 'projeto';
     $config['host'] = 'localhost';
     $config['dbuser'] = 'root';
     $config['dbpass'] = '';

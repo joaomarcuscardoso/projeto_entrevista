@@ -8,14 +8,11 @@ class Core
     public function run()
     {
 
-        $url = '/';
-        if (isset($_GET['url'])) {
-            $url .= $_GET['url'];
-        }
-
+        $url = '/' . (isset($_GET['url']) ? $_GET['url'] : '');
         $params = array();
 
         if (!empty($url) && $url != '/') {
+
             $url = explode('/', $url);
             array_shift($url);
 
@@ -33,6 +30,7 @@ class Core
                 $params = $url;
             }
         } else {
+
             $currentController = 'HomeController';
             $currentAction = 'index';
         }
